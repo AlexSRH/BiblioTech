@@ -14,5 +14,15 @@ module.exports = [
     cli: {
      migrationsDir: 'src/database/migrations'
     }
+  },
+  {
+    name: 'test',
+    type: 'sqlite',
+    database: './src/database/tests.sqlite',
+    migrations: ['src/database/migrations/*.ts'],
+    entities: ['src/app/models/*.ts'],
+    cli: {
+     migrationsDir: 'src/database/migrations'
+    }
   }
 ]

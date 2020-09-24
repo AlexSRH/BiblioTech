@@ -4,12 +4,13 @@ import { getDatabase } from './database'
 import { getApp } from './app'
 
 interface getCoreProps {
-  database?: { start: () => Promise<void> }
+  database: { start: () => Promise<void> }
+  app: { start: () => void }
 }
 
-export async function getCore(props?: getCoreProps) {
+export function getCore(props?: getCoreProps) {
   const database = props?.database || getDatabase()
-  const app = getApp()
+  const app = props?.app || getApp()
 
   async function start() {
     await database.start()

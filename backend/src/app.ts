@@ -18,5 +18,5 @@ export function getApp() {
     }
   }
 
-  return { start }
+  return { start, app }
 }

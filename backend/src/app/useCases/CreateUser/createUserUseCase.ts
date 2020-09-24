@@ -3,7 +3,7 @@ import { Repository } from 'typeorm'
 
 import { User } from '@models/User'
 import { getUserRepository } from '@repositories/userRepository'
-import { CreateUserUseCaseDTO } from './CreateUserUseCaseDTO'
+import { CreateUserUseCaseDTO } from './ICreateUserUseCaseDTO'
 
 interface getCreateUserUseCaseProps {
   userRepository?: Repository<User>

@@ -7,10 +7,12 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     "src/**/*",
-    "!src/server.ts"
+    "!src/index.ts",
+    "!src/database/migrations/*",
+    "!**/I*.ts"
   ],
   coverageProvider: "v8",
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>' }),
   preset: 'ts-jest',
-  testEnvironment: "node",
+  testEnvironment: "node"
 }
