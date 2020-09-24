@@ -1,3 +1,4 @@
+import { errors } from 'celebrate'
 import cors from 'cors'
 import express from 'express'
 
@@ -9,6 +10,7 @@ export function getApp() {
   app.use(cors())
   app.use(express.json())
   app.use(router)
+  app.use(errors())
 
   function start(port: number) {
     if (process.env.NODE_ENV !== 'test') {

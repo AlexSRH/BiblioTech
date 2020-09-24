@@ -21,6 +21,7 @@
     "paths": {
       "@repositories/*": ["./src/app/repositories/*"],
       "@controllers/*": ["./src/app/controllers/*"],
+      "@validations/*": ["./src/app/validations/*"],
       "@useCases/*": ["./src/app/useCases/*"],
       "@models/*": ["./src/app/models/*"],
       "@database/*": ["./src/database/*"]

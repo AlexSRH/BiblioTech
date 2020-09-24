@@ -9,9 +9,19 @@
     "start": "node dist/index.js",
     "pretest": "yarn typeorm migration:run -c test",
     "test": "cross-env NODE_ENV=test jest",
+    "posttest": "yarn typeorm migration:revert -c test",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "celebrate": "^13.0.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^8.3.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.26"
+  },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.7",
@@ -41,13 +51,5 @@
     "ts-node-dev": "^1.0.0-pre.63",
     "tscpaths": "^0.0.9",
     "typescript": "^4.0.3"
-  },
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "pg": "^8.3.3",
-    "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.2.26"
   }
 }
