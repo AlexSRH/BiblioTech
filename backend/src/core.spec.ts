@@ -1,8 +1,8 @@
 import { getCore } from './core'
 
-function mockApp() {
+function mock() {
   async function start() {
-    console.log('[mock] App starting...')
+    console.log('[mock] Starting...')
   }
 
   return { start }
@@ -10,10 +10,10 @@ function mockApp() {
 
 describe('Core', () => {
   it('should start', async () => {
-    const app = mockApp()
-    const database = mockApp()
+    const appExpress = mock()
+    const database = mock()
 
-    const core = getCore({ app, database })
+    const core = getCore({ appExpress, database })
 
     expect(async () => {
       await core.start()

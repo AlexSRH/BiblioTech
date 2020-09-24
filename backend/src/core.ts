@@ -5,16 +5,16 @@ import { getApp } from './app'
 
 interface getCoreProps {
   database: { start: () => Promise<void> }
-  app: { start: () => void }
+  appExpress: { start: () => void }
 }
 
 export function getCore(props?: getCoreProps) {
   const database = props?.database || getDatabase()
-  const app = props?.app || getApp()
+  const appExpress = props?.appExpress || getApp()
 
   async function start() {
     await database.start()
-    app.start(3333)
+    appExpress.start(3333)
   }
 
   return { start }
