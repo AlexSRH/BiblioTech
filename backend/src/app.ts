@@ -3,10 +3,20 @@ import express from 'express'
 
 import { router } from './routes'
 
-const app = express()
+export function getApp() {
+  const app = express()
 
-app.use(cors())
-app.use(express.json())
-app.use(router)
+  app.use(cors())
+  app.use(express.json())
+  app.use(router)
 
-export { app }
+  function start(port: number) {
+    if (process.env.NODE_ENV !== 'test') {
+      app.listen(port, () => {
+        console.log(`🚀 Server running on port ${port}`)
+      })
+    }
+  }
+
+  return { start }
+}

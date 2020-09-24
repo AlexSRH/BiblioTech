@@ -1,17 +1,18 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "dist/server.js",
+  "main": "dist/index.js",
   "author": "Alexsandro G Bezerra <aalexo1313@gmail.com>",
   "scripts": {
     "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./out",
-    "dev": "tsnd --respawn --transpile-only --cls src/server.ts",
-    "start": "node dist/server.js",
+    "dev": "tsnd -r tsconfig-paths/register --respawn --transpile-only --cls src/index.ts",
+    "start": "node dist/index.js",
     "test": "jest",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.7",
     "@types/express": "^4.17.8",
     "@types/jest": "^26.0.14",
@@ -35,6 +36,7 @@
     "typescript": "^4.0.3"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "pg": "^8.3.3",

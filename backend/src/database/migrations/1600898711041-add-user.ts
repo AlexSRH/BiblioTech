@@ -9,7 +9,8 @@ export class addUser1600898711041 implements MigrationInterface {
           {
             name: 'id',
             type: 'int',
-            isPrimary: true
+            isPrimary: true,
+            isGenerated: true
           },
           {
             name: 'name',
@@ -19,7 +20,8 @@ export class addUser1600898711041 implements MigrationInterface {
           {
             name: 'email',
             type: 'varchar',
-            isNullable: false
+            isNullable: false,
+            isUnique: true
           },
           {
             name: 'password_hash',

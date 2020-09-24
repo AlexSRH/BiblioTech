@@ -10,8 +10,9 @@ module.exports = [
     port: process.env.PORT || 5432,
     database: 'bibliotech',
     migrations: ['src/database/migrations/*.ts'],
+    entities: ['src/app/models/*.ts'],
     cli: {
-      migrationsDir: 'src/database/migrations'
+     migrationsDir: 'src/database/migrations'
     }
   }
 ]
