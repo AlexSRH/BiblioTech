@@ -36,7 +36,9 @@ describe('App', () => {
 
     await request(app).post('/users').send(userData)
 
-    const response = await request(app).post('/sessions').send(userData)
+    const response = await request(app)
+      .post('/sessions')
+      .send({ ...userData, name: undefined })
 
     expect(response.body).toHaveProperty('token')
     expect(response.status).toBe(200)
