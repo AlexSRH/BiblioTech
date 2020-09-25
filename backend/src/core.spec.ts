@@ -1,9 +1,7 @@
 import { getCore } from './core'
 
 function mock() {
-  async function start() {
-    console.log('[mock] Starting...')
-  }
+  async function start() {}
 
   return { start }
 }
