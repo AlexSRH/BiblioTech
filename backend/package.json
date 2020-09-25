@@ -9,7 +9,7 @@
     "start": "node dist/index.js",
     "pretest": "yarn typeorm migration:run -c test",
     "test": "cross-env NODE_ENV=test jest",
-    "posttest": "yarn typeorm migration:revert -c test",
+    "posttest": "yarn typeorm schema:drop -c test",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "license": "MIT",
