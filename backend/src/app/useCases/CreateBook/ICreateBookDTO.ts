@@ -1,4 +1,4 @@
-export interface IAddBookDTO {
+export interface ICreateBookDTO {
   userId: number
   name: string
   author: string

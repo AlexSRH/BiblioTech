@@ -1,10 +1,10 @@
-import { IAddBookDTO } from './IAddBookDTO'
+import { ICreateBookDTO } from './ICreateBookDTO'
 
 import { getRepository } from '@utils/getRepository'
 import { Book } from '@models/Book'
 
-export function getAddBookUseCase() {
-  async function handle(props: IAddBookDTO) {
+export function getCreateBookUseCase() {
+  async function handle(props: ICreateBookDTO) {
     const bookRepository = getRepository<Book>(Book)
     const book = new Book(props)
 
