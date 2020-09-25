@@ -4,7 +4,8 @@ import { getCreateBookUseCase } from '@useCases/CreateBook/createBookUseCase'
 
 export function getBookController() {
   async function store(request: Request, response: Response) {
-    const { userId, name, author, description } = request.body
+    const { name, author, description } = request.body
+    const userId = request.userId
 
     const createBook = getCreateBookUseCase()
 
