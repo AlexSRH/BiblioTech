@@ -22,6 +22,7 @@
       "@repositories/*": ["./src/app/repositories/*"],
       "@controllers/*": ["./src/app/controllers/*"],
       "@validations/*": ["./src/app/validations/*"],
+      "@middlewares/*": ["./src/app/middlewares/*"],
       "@utils/*": ["./src/app/utils/*"],
       "@useCases/*": ["./src/app/useCases/*"],
       "@models/*": ["./src/app/models/*"],

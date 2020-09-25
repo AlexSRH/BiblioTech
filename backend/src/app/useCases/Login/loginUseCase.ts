@@ -4,15 +4,15 @@ import { Repository } from 'typeorm'
 
 import { User } from '@models/User'
 import { ILoginDTO } from './ILoginDTO'
-import { getUserRepository } from '@repositories/userRepository'
-import generateTokenForUser from '@utils/generateTokenForUser'
+import { generateTokenForUser } from '@utils/generateTokenForUser'
+import { getRepository } from '@utils/getRepository'
 
 interface getLoginUseCaseProps {
   userRepository?: Repository<User>
 }
 
 export function getLoginUseCase(props?: getLoginUseCaseProps) {
-  const userRepository = props?.userRepository || getUserRepository()
+  const userRepository = props?.userRepository || getRepository<User>(User)
 
   async function handle({ email, password }: ILoginDTO) {
     const user = await userRepository.findOne({ email })

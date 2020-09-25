@@ -30,7 +30,8 @@ export class addBooks1601067771251 implements MigrationInterface {
           },
           {
             name: 'description',
-            type: 'varchar'
+            type: 'varchar',
+            isNullable: true
           }
         ],
         foreignKeys: [

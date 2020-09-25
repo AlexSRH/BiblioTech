@@ -3,16 +3,16 @@ import bcrypt from 'bcryptjs'
 import { Repository } from 'typeorm'
 
 import { User } from '@models/User'
-import { getUserRepository } from '@repositories/userRepository'
 import { ICreateUserUseCaseDTO } from './ICreateUserUseCaseDTO'
-import generateTokenForUser from '@utils/generateTokenForUser'
+import { generateTokenForUser } from '@utils/generateTokenForUser'
+import { getRepository } from '@utils/getRepository'
 
 interface getCreateUserUseCaseProps {
   userRepository?: Repository<User>
 }
 
 export function getCreateUserUseCase(props?: getCreateUserUseCaseProps) {
-  const userRepository = props?.userRepository || getUserRepository()
+  const userRepository = props?.userRepository || getRepository<User>(User)
 
   async function handle({ email, name, password }: ICreateUserUseCaseDTO) {
     const userAlreadyExists = await userRepository.findOne({ email })
