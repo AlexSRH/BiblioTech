@@ -13,13 +13,13 @@ describe('CreateUserUseCase', () => {
     const createUserUseCase = getCreateUserUseCase()
     const email = faker.internet.email()
 
-    const user = await createUserUseCase.handle({
+    const data = await createUserUseCase.handle({
       name: faker.name.findName(),
       email,
       password: faker.internet.password()
     })
 
-    expect(user.email).toBe(email)
+    expect(data.user.email).toBe(email)
   })
 
   it('should not create a duplicated user', async () => {
@@ -48,15 +48,15 @@ describe('CreateUserUseCase', () => {
     const email = faker.internet.email()
     const password = faker.internet.password()
 
-    const user = await createUserUseCase.handle({
+    const data = await createUserUseCase.handle({
       name: faker.name.findName(),
       email,
       password
     })
 
-    const comparedHash = await bcrypt.compare(password, user.password)
+    const comparedHash = await bcrypt.compare(password, data.user.password)
 
-    expect(user.email).toBe(email)
+    expect(data.user.email).toBe(email)
     expect(comparedHash).toBe(true)
   })
 })

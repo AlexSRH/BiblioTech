@@ -8,9 +8,9 @@ export function getUserController() {
     const createUserUseCase = getCreateUserUseCase()
 
     try {
-      await createUserUseCase.handle({ name, email, password })
+      const data = await createUserUseCase.handle({ name, email, password })
 
-      return response.status(201).send()
+      return response.status(201).json(data)
     } catch (err) {
       return response
         .status(400)
