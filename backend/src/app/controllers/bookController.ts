@@ -2,6 +2,7 @@ import { Request, Response } from 'express'
 
 import { getCreateBookUseCase } from '@useCases/CreateBook/createBookUseCase'
 import { getListBooksUseCase } from '@useCases/ListBooks/listBooksUseCase'
+import { getRemoveBookUseCase } from '@useCases/RemoveBook/removeBookUseCase'
 
 export function getBookController() {
   async function index(request: Request, response: Response) {
@@ -36,5 +37,22 @@ export function getBookController() {
     }
   }
 
-  return { index, store }
+  async function remove(request: Request, response: Response) {
+    const { id } = request.params
+    const userId = request.userId
+
+    const removeBookUseCase = getRemoveBookUseCase()
+
+    try {
+      await removeBookUseCase.handle({ userId, bookId: Number(id) })
+
+      return response.status(204).send()
+    } catch (err) {
+      return response
+        .status(400)
+        .json({ message: err.message || 'Unexpected error' })
+    }
+  }
+
+  return { index, store, remove }
 }

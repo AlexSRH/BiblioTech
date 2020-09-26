@@ -25,7 +25,7 @@ export default function (
   try {
     const decoded = jwt.verify(token, process.env.APP_SECRET) as IDecoded
 
-    request.userId = decoded.id
+    request.userId = Number(decoded.id)
 
     next()
   } catch {

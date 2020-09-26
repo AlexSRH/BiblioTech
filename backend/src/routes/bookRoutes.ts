@@ -6,5 +6,6 @@ const bookController = getBookController()
 
 bookRoutes.get('/', bookController.index)
 bookRoutes.post('/', bookController.store)
+bookRoutes.delete('/:id', bookController.remove)
 
 export { bookRoutes }
