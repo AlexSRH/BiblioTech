@@ -1,7 +1,8 @@
 import React from 'react'
+import Login from './pages/Login'
 
 const App: React.FC = () => {
-  return <h1>Hello, World!</h1>
+  return <Login />
 }
 
 export default App
