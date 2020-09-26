@@ -9,7 +9,8 @@ module.exports = {
     'src/**/*',
     '!src/index.ts',
     '!src/database/migrations/*',
-    '!**/I*.ts'
+    '!**/I*.ts',
+    '!**/*.d.ts'
   ],
   coverageProvider: 'v8',
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>' }),
