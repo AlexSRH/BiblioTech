@@ -3,6 +3,7 @@ import { FiArrowLeft } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
 import { Container } from './styles'
+import Button from '../../components/Button'
 
 const Register: React.FC = () => (
   <Container>
@@ -16,7 +17,7 @@ const Register: React.FC = () => (
         <input type='text' placeholder='E-mail' />
         <input type='password' placeholder='Senha' />
 
-        <button type='submit'>Entrar</button>
+        <Button>Entrar</Button>
       </form>
 
       <div></div>
