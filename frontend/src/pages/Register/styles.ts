@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100vh;
   width: 100vw;
 
-  .left {
+  .right {
     align-items: center;
     background-color: var(--primary-color);
     color: #fff;
@@ -27,12 +27,12 @@ export const Container = styled.div`
     }
   }
 
-  .right {
+  .left {
     align-items: center;
     display: flex;
     flex: 1;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
 
     h3 {
       margin-bottom: 3rem;
@@ -61,6 +61,7 @@ export const Container = styled.div`
       border: none;
       border-radius: 3rem;
       color: #fff;
+      cursor: pointer;
       display: flex;
       font-size: 1.8rem;
       font-weight: bold;
@@ -77,19 +78,14 @@ export const Container = styled.div`
         margin-left: 1rem;
       }
     }
+  }
 
-    a {
-      align-items: center;
-      display: flex;
-      color: #333;
-      font-size: 2rem;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 3rem;
-
-      svg {
-        margin-left: 1rem;
-      }
-    }
+  .back-button {
+    align-self: flex-start;
+    color: #333;
+    cursor: pointer;
+    font-size: 3rem;
+    margin: 2rem;
+    padding: 1rem;
   }
 `

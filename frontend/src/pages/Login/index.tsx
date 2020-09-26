@@ -1,5 +1,6 @@
 import React from 'react'
 import { FiLogIn, FiArrowRight } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 import { Container } from './styles'
 
@@ -22,10 +23,10 @@ const Login: React.FC = () => (
         </button>
       </form>
 
-      <a>
+      <Link to='/register'>
         Criar conta
         <FiArrowRight />
-      </a>
+      </Link>
     </div>
   </Container>
 )

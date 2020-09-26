@@ -1,14 +1,13 @@
 import React from 'react'
 
 import GlobalStyle from './assets/styles/global'
-
-import Login from './pages/Login'
+import AuthRoutes from './routes/auth.routes'
 
 const App: React.FC = () => {
   return (
     <>
       <GlobalStyle />
-      <Login />
+      <AuthRoutes />
     </>
   )
 }
