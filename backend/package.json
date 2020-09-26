@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "author": "Alexsandro G Bezerra <aalexo1313@gmail.com>",
   "scripts": {
-    "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./out",
+    "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
     "dev": "tsnd -r tsconfig-paths/register --respawn --transpile-only --cls src/index.ts",
     "start": "node dist/index.js",
     "pretest": "yarn typeorm migration:run -c test",
