@@ -12,6 +12,7 @@ const Register: React.FC = () => (
         <FiArrowLeft />
       </Link>
 
+      <h3>Registrar</h3>
       <form>
         <input type='text' placeholder='Nome' />
         <input type='text' placeholder='E-mail' />

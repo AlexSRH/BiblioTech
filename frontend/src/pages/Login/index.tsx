@@ -1,17 +1,27 @@
-import React, { FormEvent } from 'react'
+import React, { FormEvent, useState } from 'react'
 import { FiLogIn, FiArrowRight } from 'react-icons/fi'
 import { Link, useHistory } from 'react-router-dom'
 
 import { Container } from './styles'
 import Button from '../../components/Button'
+import { useAuth } from '../../contexts/auth'
 
 const Login: React.FC = () => {
   const history = useHistory()
+  const { singIn } = useAuth()
 
-  function handleLogIn(event: FormEvent) {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  async function handleLogIn(event: FormEvent) {
     event.preventDefault()
 
-    history.push('/books')
+    try {
+      await singIn({ email, password })
+      history.push('/books')
+    } catch (err) {
+      alert('Falha no login. Cheque sua senha!')
+    }
   }
 
   return (
@@ -24,8 +34,18 @@ const Login: React.FC = () => {
         <h3>Fazer Login</h3>
 
         <form onSubmit={handleLogIn}>
-          <input type='text' placeholder='E-mail' />
-          <input type='password' placeholder='Senha' />
+          <input
+            type='text'
+            placeholder='E-mail'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type='password'
+            placeholder='Senha'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
           <Button>
             Entrar
