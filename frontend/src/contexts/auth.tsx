@@ -1,9 +1,13 @@
 import React, { createContext, useContext, useState } from 'react'
 import api from '../services/api'
 
-interface singInProps {
+interface SingInProps {
   email: string
   password: string
+}
+
+interface RegisterProps extends SingInProps {
+  name: string
 }
 
 interface User {
@@ -13,7 +17,8 @@ interface User {
 
 interface AuthContextData {
   signed: boolean
-  singIn: (props: singInProps) => Promise<void>
+  singIn: (props: SingInProps) => Promise<void>
+  register: (props: RegisterProps) => Promise<void>
   singOut: () => void
   token: string | null
   user: User | null
@@ -30,7 +35,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<User | null>(null)
   const [token, setToken] = useState<string | null>(null)
 
-  async function singIn({ email, password }: singInProps) {
+  async function singIn({ email, password }: SingInProps) {
     const response = await api.post<ResponseSignIn>('sessions', {
       email,
       password
@@ -45,9 +50,20 @@ export const AuthProvider: React.FC = ({ children }) => {
     setToken(null)
   }
 
+  async function register({ email, password, name }: RegisterProps) {
+    const response = await api.post<ResponseSignIn>('users', {
+      name,
+      email,
+      password
+    })
+
+    setUser(response.data.user)
+    setToken(response.data.token)
+  }
+
   return (
     <AuthContext.Provider
-      value={{ signed: !!user, singIn, token, user, singOut }}
+      value={{ signed: !!user, singIn, token, user, singOut, register }}
     >
       {children}
     </AuthContext.Provider>
