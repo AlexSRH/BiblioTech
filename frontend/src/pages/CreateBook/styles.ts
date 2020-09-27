@@ -10,7 +10,7 @@ export const Container = styled.div`
   form {
     align-items: center;
     display: flex;
-
+    align-self: flex-start;
     flex-direction: column;
     justify-content: center;
     width: 80%;

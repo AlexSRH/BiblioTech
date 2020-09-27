@@ -28,6 +28,8 @@ export function getCreateUserUseCase(props?: getCreateUserUseCaseProps) {
     const savedUser = await userRepository.save(user)
     const token = generateTokenForUser(savedUser, process.env.APP_SECRET)
 
+    savedUser.password = undefined
+
     return { user: savedUser, token }
   }
 

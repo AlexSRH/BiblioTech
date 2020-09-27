@@ -5,8 +5,11 @@ export const Container = styled.header`
   background-color: var(--primary-color);
   color: #fff;
   display: flex;
+  position: fixed;
+  top: 0;
   flex: 1;
   justify-content: space-around;
+  height: 7rem;
   width: 100%;
 
   .sign-out {

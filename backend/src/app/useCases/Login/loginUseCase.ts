@@ -29,6 +29,8 @@ export function getLoginUseCase(props?: getLoginUseCaseProps) {
 
     const token = generateTokenForUser(user, process.env.APP_SECRET)
 
+    user.password = undefined
+
     return { token, user }
   }
 

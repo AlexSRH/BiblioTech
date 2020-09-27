@@ -13,8 +13,10 @@ export function getCore(props?: getCoreProps) {
   const appExpress = props?.appExpress || getApp()
 
   async function start() {
+    const port = 3333
+
     await database.start()
-    appExpress.start(3333)
+    appExpress.start(port)
   }
 
   return { start }
