@@ -8,9 +8,6 @@
    <img src="./.github/assets/register-page.png" width="250px" style="margin: 5px">
 </div>
 
-<br />
-<br />
-
 # Índice
 <p align="center">
   <a href="#sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -95,8 +92,6 @@ $ yarn dev
 ```
 
 > A api vai rodar na porta 3333 por padrão. Caso queira mudar a porta [Clique aqui](.github/change-port-api.md)
-
-<br>
 
 ### :computer: Rode o Projeto Web (Frontend)
 
