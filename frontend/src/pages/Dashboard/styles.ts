@@ -59,6 +59,7 @@ export const ModalCategoryGroup = styled.div`
 export const ModalFooter = styled.div`
   display: flex;
   justify-content: flex-end;
+  margin-top: 2.4rem;
 `
 
 export const DeleteButton = styled.button`

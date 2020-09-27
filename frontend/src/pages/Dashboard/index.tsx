@@ -29,6 +29,7 @@ const Dashboard: React.FC = () => {
 
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [books, setBooks] = useState<Book[]>([])
+  const [selectedBook, setSelectedBook] = useState<Book>(books[0])
 
   function closeModal() {
     setIsModalVisible(false)
@@ -44,7 +45,26 @@ const Dashboard: React.FC = () => {
     }
 
     getBooks()
-  }, [])
+  }, [token])
+
+  function handleSelectBook(book: Book) {
+    setSelectedBook(book)
+    setIsModalVisible(true)
+  }
+
+  async function handleDeleteBook() {
+    try {
+      await api.delete(`/books/${selectedBook?.id}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+
+      const newBooks = books.filter((book) => book.id !== selectedBook.id)
+      setBooks(newBooks)
+      setIsModalVisible(false)
+    } catch {
+      alert('Falha em excluir livro!')
+    }
+  }
 
   return (
     <Container>
@@ -61,7 +81,7 @@ const Dashboard: React.FC = () => {
           {books.map((book) => (
             <Item
               onClick={() => {
-                setIsModalVisible(true)
+                handleSelectBook(book)
               }}
               key={book.id}
             >
@@ -99,23 +119,20 @@ const Dashboard: React.FC = () => {
       >
         <ModalCategoryGroup>
           <h3>Nome: </h3>
-          <span>Harry Potter</span> <br />
+          <span>{selectedBook?.name}</span> <br />
         </ModalCategoryGroup>
         <ModalCategoryGroup>
           <h3>Autor(a): </h3>
-          <span>J. K. Rowling</span> <br />
+          <span>{selectedBook?.author}</span> <br />
         </ModalCategoryGroup>
-        <ModalCategoryGroup>
-          <h3>Descrição: </h3> <br />
-          <span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-            voluptatibus ipsam, nulla officia qui incidunt rem eos vero dicta
-            laudantium ex repellat quos labore architecto molestiae nobis!
-            Veritatis, laboriosam quo.
-          </span>
-        </ModalCategoryGroup>
+        {selectedBook?.description && (
+          <ModalCategoryGroup>
+            <h3>Descrição: </h3> <br />
+            <span>{selectedBook.description}</span>
+          </ModalCategoryGroup>
+        )}
         <ModalFooter>
-          <DeleteButton>Excluir</DeleteButton>
+          <DeleteButton onClick={handleDeleteBook}>Excluir</DeleteButton>
           <CloseButton onClick={closeModal}>Fechar</CloseButton>
         </ModalFooter>
       </Modal>
