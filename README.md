@@ -47,7 +47,7 @@ docker run --name nlw -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ### :link: Clonando repositório
 
 ```sh
-# Clone o Repositoria
+# Clone o repositorio
 $ git clone https://github.com/AlexSRH/BiblioTech.git
 ```
 
@@ -100,8 +100,8 @@ Você pode ver as rotas disponíveis e testa-las no Insomnia:
 ### :computer: Rode o Projeto Web (Frontend)
 
 ```bash
-# Vá para a pasta web
-$ cd BiblioTech/web
+# Vá para a pasta frontend
+$ cd BiblioTech/frontend
 
 # Instale as depedencias
 $ yarn
