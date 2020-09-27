@@ -1,11 +1,11 @@
 # BiblioTech
 
 <div style="display: flex; flex-direction: 'row'; align-items: 'center'; flex-wrap: wrap;">
-   <img src="./.github/assets/create-book.png" width="250px" style="margin: 5px">
-   <img src="./.github/assets/dashboard-page.png" width="250px" style="margin: 5px">
-   <img src="./.github/assets/login-page.png" width="250px" style="margin: 5px">
-   <img src="./.github/assets/modal-example.png" width="250px" style="margin: 5px">
-   <img src="./.github/assets/register-page.png" width="250px" style="margin: 5px">
+   <img src="./.github/assets/create-book.png" width="300px" style="margin: 10px">
+   <img src="./.github/assets/dashboard-page.png" width="300px" style="margin: 10px">
+   <img src="./.github/assets/login-page.png" width="300px" style="margin: 10px">
+   <img src="./.github/assets/modal-example.png" width="300px" style="margin: 10px">
+   <img src="./.github/assets/register-page.png" width="300px" style="margin: 10px">
 </div>
 
 # Índice
@@ -26,7 +26,7 @@
 
 <p id="requisitos"></p>
 
-## **Pré-requisitos**
+## :heavy_exclamation_mark: **Pré-requisitos**
 
   - É **necessário** possuir o **[Node.js](https://nodejs.org/en/)** instalado na máquina
   - Também, é **preciso** ter um gerenciador de pacotes seja o **[Yarn](https://yarnpkg.com/)**.
@@ -44,7 +44,7 @@ docker run --name nlw -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 
 ## :construction_worker: **Como rodar**
 
-### :gear: Clonando repositório
+### :link: Clonando repositório
 
 ```sh
 # Clone o Repositoria
@@ -92,6 +92,10 @@ $ yarn dev
 ```
 
 > A api vai rodar na porta 3333 por padrão. Caso queira mudar a porta [Clique aqui](.github/change-port-api.md)
+
+Você pode ver as rotas disponíveis e testa-las no Insomnia:
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Bibliotech&uri=https%3A%2F%2Fraw.githubusercontent.com%2FAlexSRH%2FBiblioTech%2Fmaster%2FAPI%2520-Insomnia_2020-09-27.json)
 
 ### :computer: Rode o Projeto Web (Frontend)
 
