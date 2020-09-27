@@ -9,6 +9,12 @@ export const Container = styled.header`
   justify-content: space-around;
   width: 100%;
 
+  .sign-out {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
   svg {
     color: white;
     font-size: 2.4rem;

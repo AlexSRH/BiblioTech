@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Modal from 'react-modal'
 import { FiLogOut, FiPlus } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
@@ -14,38 +14,61 @@ import {
   DeleteButton,
   CloseButton
 } from './styles'
+import { useAuth } from '../../contexts/auth'
+import api from '../../services/api'
+
+interface Book {
+  id: number
+  name: string
+  author: string
+  description?: string
+}
 
 const Dashboard: React.FC = () => {
+  const { user, token, singOut } = useAuth()
+
   const [isModalVisible, setIsModalVisible] = useState(false)
+  const [books, setBooks] = useState<Book[]>([])
 
   function closeModal() {
     setIsModalVisible(false)
   }
 
+  useEffect(() => {
+    async function getBooks() {
+      const response = await api.get<Book[]>('/books', {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+
+      setBooks(response.data)
+    }
+
+    getBooks()
+  }, [])
+
   return (
     <Container>
       <Header>
-        <h2>Olá Alexsandro!</h2>
+        <h2>Olá {`${user?.name}`}!</h2>
 
-        <Link to='/'>
+        <button onClick={singOut} className='sign-out'>
           <FiLogOut />
-        </Link>
+        </button>
       </Header>
 
       <Main>
         <ul>
-          <Item
-            onClick={() => {
-              setIsModalVisible(true)
-            }}
-          >
-            <h2>Harry Potter</h2>
-            <h3>J. K. Rowling</h3>
-          </Item>
-          <Item>
-            <h2>Harry Potter</h2>
-            <h3>J. K. Rowling</h3>
-          </Item>
+          {books.map((book) => (
+            <Item
+              onClick={() => {
+                setIsModalVisible(true)
+              }}
+              key={book.id}
+            >
+              <h2>{book.name}</h2>
+              <h3>{book.author}</h3>
+            </Item>
+          ))}
           <Item>
             <Link to='/books/new'>
               <FiPlus />

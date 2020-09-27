@@ -37,7 +37,6 @@ export const Item = styled.li`
       font-size: 2.6rem;
       justify-content: center;
       padding: 2rem;
-
       width: 100%;
     }
   }
@@ -80,5 +79,6 @@ export const CloseButton = styled.button`
   padding: 1.6rem;
   color: #fff;
   cursor: pointer;
+
   font-weight: bold;
 `

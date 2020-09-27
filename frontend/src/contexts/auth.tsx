@@ -14,6 +14,7 @@ interface User {
 interface AuthContextData {
   signed: boolean
   singIn: (props: singInProps) => Promise<void>
+  singOut: () => void
   token: string | null
   user: User | null
 }
@@ -39,8 +40,15 @@ export const AuthProvider: React.FC = ({ children }) => {
     setToken(response.data.token)
   }
 
+  function singOut() {
+    setUser(null)
+    setToken(null)
+  }
+
   return (
-    <AuthContext.Provider value={{ signed: !!user, singIn, token, user }}>
+    <AuthContext.Provider
+      value={{ signed: !!user, singIn, token, user, singOut }}
+    >
       {children}
     </AuthContext.Provider>
   )
